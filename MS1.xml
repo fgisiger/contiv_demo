@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<imdata totalCount="1">
+	<fvTenant descr="" dn="uni/tn-MS1" name="MS1" ownerKey="" ownerTag="">
+		<vzBrCP descr="" name="app2db" ownerKey="" ownerTag="" prio="unspecified" scope="tenant" targetDscp="unspecified">
+			<vzSubj consMatchT="AtleastOne" descr="" name="app2db" prio="unspecified" provMatchT="AtleastOne" revFltPorts="yes" targetDscp="unspecified">
+				<vzRsSubjFiltAtt tnVzFilterName="permit_ssh"/>
+				<vzRsSubjFiltAtt tnVzFilterName="icmp"/>
+			</vzSubj>
+		</vzBrCP>
+		<fvCtx descr="" knwMcastAct="permit" name="vrf1" ownerKey="" ownerTag="" pcEnfDir="ingress" pcEnfPref="enforced">
+			<fvRsCtxToExtRouteTagPol tnL3extRouteTagPolName=""/>
+			<fvRsBgpCtxPol tnBgpCtxPolName=""/>
+			<vzAny descr="" matchT="AtleastOne" name=""/>
+			<fvRsOspfCtxPol tnOspfCtxPolName=""/>
+			<fvRsCtxToEpRet tnFvEpRetPolName=""/>
+		</fvCtx>
+		<fvBD arpFlood="no" descr="" epMoveDetectMode="" limitIpLearnToSubnets="no" llAddr="::" mac="00:22:BD:F8:19:FF" multiDstPktAct="bd-flood" name="bd2" ownerKey="" ownerTag="" unicastRoute="yes" unkMacUcastAct="proxy" unkMcastAct="flood" vmac="not-applicable">
+			<fvRsBDToNdP tnNdIfPolName=""/>
+			<fvRsCtx tnFvCtxName="vrf1"/>
+			<fvRsIgmpsn tnIgmpSnoopPolName=""/>
+			<fvSubnet ctrl="" descr="" ip="20.0.0.1/24" name="" preferred="no" scope="public,shared" virtual="no"/>
+			<fvRsBdToEpRet resolveAct="resolve" tnFvEpRetPolName=""/>
+		</fvBD>
+		<fvBD arpFlood="no" descr="" epMoveDetectMode="" limitIpLearnToSubnets="no" llAddr="::" mac="00:22:BD:F8:19:FF" multiDstPktAct="bd-flood" name="bd2" ownerKey="" ownerTag="" unicastRoute="yes" unkMacUcastAct="proxy" unkMcastAct="flood" vmac="not-applicable">
+			<fvRsBDToNdP tnNdIfPolName=""/>
+			<fvRsCtx tnFvCtxName="vrf2"/>
+			<fvRsIgmpsn tnIgmpSnoopPolName=""/>
+			<fvSubnet ctrl="" descr="" ip="20.0.0.1/24" name="" preferred="no" scope="public,shared" virtual="no"/>
+			<fvRsBdToEpRet resolveAct="resolve" tnFvEpRetPolName=""/>
+		</fvBD>
+		<vzFilter descr="" name="permit_ssh" ownerKey="" ownerTag="">
+			<vzEntry applyToFrag="no" arpOpc="unspecified" dFromPort="22" dToPort="22" descr="" etherT="ip" icmpv4T="unspecified" icmpv6T="unspecified" matchDscp="unspecified" name="permit_ssh" prot="tcp" sFromPort="unspecified" sToPort="unspecified" stateful="no" tcpRules=""/>
+		</vzFilter>
+		<fvRsTenantMonPol tnMonEPGPolName=""/>
+		<fvAp descr="" name="ap_regular" ownerKey="" ownerTag="" prio="unspecified">
+			<fvAEPg descr="" isAttrBasedEPg="no" matchT="AtleastOne" name="db" pcEnfPref="unenforced" prio="unspecified">
+				<fvRsDomAtt encap="unknown" instrImedcy="lazy" primaryEncap="unknown" resImedcy="immediate" tDn="uni/vmmp-VMware/dom-SharedLabDVSOne">
+					<vmmSecP allowPromiscuous="reject" descr="" forgedTransmits="reject" macChanges="reject" name="" ownerKey="" ownerTag=""/>
+				</fvRsDomAtt>
+				<fvRsCustQosPol tnQosCustomPolName=""/>
+				<fvRsBd tnFvBDName="bd2"/>
+				<fvRsProv matchT="AtleastOne" prio="unspecified" tnVzBrCPName="app2db"/>
+			</fvAEPg>
+		</fvAp>
+	</fvTenant>
+</imdata>
