@@ -47,7 +47,7 @@ docker run -itd --net="web/MS1" --name=web1 jainvipin/web /bin/bash
 docker ps -a
 
 
-##------------------- now confirm that, app1 container can talk to app2, but NOT to web1 as no contracts in place
+##------------------- now confirm that, app1 container CAN talk to app2, but NOT to web1 as no contracts in place
 
 
 # ------------------- Testing the policies and rules which we have applied on app and web groups.
@@ -59,13 +59,16 @@ netctl policy rule-add -t MS1 -d in --protocol icmp  --from-group web  --action 
 netctl group create -t MS1 -p web2app bd1 app
 
 
-# ------------------- now confirm that app1/app2 container CAN ping web1 container
+# ------------------- now confirm that app1/app2 containers CAN ping web1 container
 
 
 # ------------------- Create external contracts and associate it with app EPG
 
 netctl external-contracts create --tenant MS1 -c --contract "uni/tn-MS1/brc-app2db" appConsumed
 netctl group create -t MS1 -e appConsumed -p web2app bd1 app
+
+# ------------------- now confirm that app1/app2 containers CAN ping/ssh database EP
+
 
 ##------------------- useful netctl/debugging commands
 
