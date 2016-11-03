@@ -21,13 +21,6 @@
 			<fvSubnet ctrl="" descr="" ip="20.0.0.1/24" name="" preferred="no" scope="public,shared" virtual="no"/>
 			<fvRsBdToEpRet resolveAct="resolve" tnFvEpRetPolName=""/>
 		</fvBD>
-		<fvBD arpFlood="no" descr="" epMoveDetectMode="" limitIpLearnToSubnets="no" llAddr="::" mac="00:22:BD:F8:19:FF" multiDstPktAct="bd-flood" name="bd2" ownerKey="" ownerTag="" unicastRoute="yes" unkMacUcastAct="proxy" unkMcastAct="flood" vmac="not-applicable">
-			<fvRsBDToNdP tnNdIfPolName=""/>
-			<fvRsCtx tnFvCtxName="vrf2"/>
-			<fvRsIgmpsn tnIgmpSnoopPolName=""/>
-			<fvSubnet ctrl="" descr="" ip="20.0.0.1/24" name="" preferred="no" scope="public,shared" virtual="no"/>
-			<fvRsBdToEpRet resolveAct="resolve" tnFvEpRetPolName=""/>
-		</fvBD>
 		<vzFilter descr="" name="permit_ssh" ownerKey="" ownerTag="">
 			<vzEntry applyToFrag="no" arpOpc="unspecified" dFromPort="22" dToPort="22" descr="" etherT="ip" icmpv4T="unspecified" icmpv6T="unspecified" matchDscp="unspecified" name="permit_ssh" prot="tcp" sFromPort="unspecified" sToPort="unspecified" stateful="no" tcpRules=""/>
 		</vzFilter>
